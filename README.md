@@ -1,1 +1,1 @@
-# databasebuddies
+# databasebuddies BeerBuddies application

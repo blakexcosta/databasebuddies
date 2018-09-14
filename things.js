@@ -19,6 +19,14 @@ router.get('/:name/:id', function(req, res){
 });
 
 
+//pattern matching routes, will restrict URL parameter matching
+//ex:) need the id to be a 5 digit long number
+//will ONLY match requests that are 5 digits long
+router.get('/:id([0-9]{5})', function(req, res){
+        res.send('id: ' + req.params.id);
+});
+
+
 //navigate to localhost:3000/things/hello
 router.get('/hello', function(req, res){
 	res.send("Hello Page!");

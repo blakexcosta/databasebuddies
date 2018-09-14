@@ -1,10 +1,18 @@
 var express = require("express");
 var app = express();
-
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 //better separation of concerns
 //uses app.use to 'use' the module things.js
 var things = require('./things.js');
 app.use('/things', things);
+//parse url encoded data
+app.use(bodyParser.urlencoded({extended: false}));
+//parse json data
+app.use(bodyParser.json());
+//parses cookie header abd populates req.cookies w/ object keyed by cookie names
+app.use(cookieParser());
+
 
 
 //dynamic routes

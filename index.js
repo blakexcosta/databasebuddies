@@ -12,8 +12,17 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 //parses cookie header abd populates req.cookies w/ object keyed by cookie names
 app.use(cookieParser());
+//pug is different from the others above, with pug (which is a templating engine)
+//we don't need to 'require' it. just use it like below (in your index.js)
+app.set('view engine', 'pug');
+app.set('views','./views');
 
-
+//I added a /views folder and created a new pug file. look at the format
+//now I'm loading the page. all I gotta do is give it the name of the template
+// (because /views folder is alread loaded when i did app.set above)
+app.get('/first_template', function(req, res){
+	res.render('first_view');
+});
 
 //dynamic routes
 //complex example is in things.js

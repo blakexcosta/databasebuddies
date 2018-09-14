@@ -11,6 +11,13 @@ router.post('/', function(req, res){
         res.send('POST route on things.');
 });
 
+//more complex example of dynamic routes
+// http://localhost:3000/things/somethingsomething/3456
+//can also put this in /things
+router.get('/:name/:id', function(req, res){
+	res.send('id: ' + req.params.id + ' and name: ' + req.params.name);
+});
+
 
 //navigate to localhost:3000/things/hello
 router.get('/hello', function(req, res){

@@ -24,6 +24,20 @@ app.get('/first_template', function(req, res){
 	res.render('first_view');
 });
 
+//passing values to a template
+app.get('/dynamic_view', function(req, res, next){
+        res.render("dynamic", {name: "DatabaseBuddies", url: "http://www.google.com"});
+});
+
+//passing values to a template
+app.get('/login', function(req, res, next){
+        res.render("login", {user: {name: "Bobs Burgers", age:"46"}});
+});
+ 	
+app.get('/components', function(req, res, next){
+	res.render("content");
+});
+
 //dynamic routes
 //complex example is in things.js
 //allows us to use parameters such as req.params.id

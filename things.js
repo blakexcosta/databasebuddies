@@ -1,15 +1,16 @@
 var express = require('express');
 var router  = express.Router();
 
+
 //using express router
 //this needs to be in same direction as index.js
 router.get('/', function(req, res){
 	res.send('GET route on things.');
 });
-
 router.post('/', function(req, res){
         res.send('POST route on things.');
 });
+
 
 //more complex example of dynamic routes
 // http://localhost:3000/things/somethingsomething/3456
@@ -47,6 +48,4 @@ router.post('/hello', function(req, res){
 router.all('/test', function(req, res){
         res.send("HTTP method doesn't have any effect on this route!");
 });
-
-
 module.exports = router;

@@ -2,6 +2,8 @@ var express = require("express");
 var app = express();
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
+
+
 //better separation of concerns
 //uses app.use to 'use' the module things.js
 var things = require('./things.js');
@@ -16,6 +18,17 @@ app.use(cookieParser());
 //we don't need to 'require' it. just use it like below (in your index.js)
 app.set('view engine', 'pug');
 app.set('views','./views');
+//using multiple folders to server static files
+app.use(express.static('public'));
+app.use(express.static('images'));
+//can also do it this way
+app.use('/static', express.static('public')); // basically reassigns ability to reference code in template folders, would use /static/main.js instead of /public/main.js (it's aliasing basically)
+
+//static usage page for 'dalord'
+app.get('/dalord',function(req, res){
+	res.render('dalord');
+}); 
+
 
 //I added a /views folder and created a new pug file. look at the format
 //now I'm loading the page. all I gotta do is give it the name of the template
@@ -24,19 +37,19 @@ app.get('/first_template', function(req, res){
 	res.render('first_view');
 });
 
-//passing values to a template
-app.get('/dynamic_view', function(req, res, next){
-        res.render("dynamic", {name: "DatabaseBuddies", url: "http://www.google.com"});
-});
 
 //passing values to a template
 app.get('/login', function(req, res, next){
         res.render("login", {user: {name: "Bobs Burgers", age:"46"}});
 });
+
  	
 app.get('/components', function(req, res, next){
 	res.render("content");
 });
+
+
+
 
 //dynamic routes
 //complex example is in things.js
@@ -47,21 +60,23 @@ app.get('/:id', function(req, res){
 	res.send('The id you specified is ' + req.params.id);
 });
 
+
+
+
 //First middleware before response is sent
 app.use(function(req, res, next){
    console.log("Start");
    next();
 });
-
 //Route handler, middleware above deligates to this router when going to localhost:3000
 app.get('/', function(req, res, next){
    res.send("Middle");
    next();
 });
-
 app.use('/', function(req, res){
    console.log('End');
 });
+
 
 //for routes that do not match, equivalent to 404
 //should be placed AFTER all other routes, including external routers required

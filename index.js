@@ -22,7 +22,7 @@ app.set('views','./views');
 app.use(express.static('public'));
 app.use(express.static('images'));
 //can also do it this way
-app.use('/static', express.static('public')); // basically reassigns ability to reference code in template folders, would use /static/main.js instead of /public/main.js (it's aliasing basically)
+//app.use('/static', express.static('public')); // basically reassigns ability to reference code in template folders, would use /static/main.js instead of /public/main.js (it's aliasing basically)
 
 //static usage page for 'dalord'
 app.get('/dalord',function(req, res){

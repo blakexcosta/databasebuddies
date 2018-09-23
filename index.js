@@ -2,22 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var upload = multer();
+var request = require('request');
 var mysql = require('mysql');
-//var mongoose = require('mongoose');
-//connecting to the database
-/*
-mongoose.connect('mongodb://localhost/my_db');
-//creating a new Schema
-var personSchema = mongoose.Schema({
-    name: String,
-    age: Number,
-    nationality: String
-});
-//applying schema to database as "Person", acts as a collection
-var Person = mongoose.model("Person", personSchema);
-*/
-
-///starting the app
 var app = express();
 
 
@@ -59,35 +45,18 @@ app.get('/', function(req, res){
 app.get('/person', function(req, res, next){
     res.render('person');
 
-});
 
-
-/*
-//handles post requests for person page
-app.post('/person', function(req, res, next){
-    var personInfo = req.body; //gets parse body information
-    //showing error message if not name age or nationality
-    if(!personInfo.name || !personInfo.age || !personInfo.nationality){
-        res.render('show_message', {message: "Sorry, you provided the wrong info", type: "error"});
-    } else {
-        //creating new person from information in the request body that was passed from the page template
-        var newPerson = new Person({
-            name: personInfo.name,
-            age: personInfo.age,
-            nationality: personInfo.nationality
-        });
-        //saving the new person
-        newPerson.save(function(err, Person){
-            if(err){
-                res.render('show_message', {message: "Database error", type: "error"});
-            }
-            else {
-                res.render('show_message', {message: "New Person Added", type: "success", person: personInfo});
-            }
-        });
-    }
+//making api request call, uncomment to see
+/*request('https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&rows=0&facet=style_name&facet=cat_name&facet=name_breweries&facet=country',  function(error,response, body) {
+  if (!error && response.statusCode == 200) {
+	//body contains all of information
+    console.log(body) // Print the google web page.
+	
+  }
 });
 */
+});
 
 //listening on port 3000
+
 app.listen(3000);

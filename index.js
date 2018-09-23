@@ -2,8 +2,10 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var upload = multer();
-var mongoose = require('mongoose');
+var mysql = require('mysql');
+//var mongoose = require('mongoose');
 //connecting to the database
+/*
 mongoose.connect('mongodb://localhost/my_db');
 //creating a new Schema
 var personSchema = mongoose.Schema({
@@ -13,7 +15,7 @@ var personSchema = mongoose.Schema({
 });
 //applying schema to database as "Person", acts as a collection
 var Person = mongoose.model("Person", personSchema);
-
+*/
 
 ///starting the app
 var app = express();
@@ -31,6 +33,24 @@ app.use(upload.array());
 app.use(express.static('public'));
 
 
+//creating mysql connection
+//created a an ExampleDB, a user with only select permission, and 
+//a table with only 1 record w/ id and name as columns
+var connection = mysql.createConnection({
+  host:'localhost',
+  user:'rickrenardo',
+  password:'password',
+  database:'ExampleDB'
+});
+connection.connect();
+connection.query('SELECT * FROM example', function(err, rows,fields){
+	if (err) throw err
+	console.log("ID: " +  rows[0].id);
+	console.log("Fields: " + rows[0].name);
+});
+connection.end();
+
+
 //home page
 app.get('/', function(req, res){
    res.render('dalord');
@@ -40,6 +60,9 @@ app.get('/person', function(req, res, next){
     res.render('person');
 
 });
+
+
+/*
 //handles post requests for person page
 app.post('/person', function(req, res, next){
     var personInfo = req.body; //gets parse body information
@@ -64,6 +87,7 @@ app.post('/person', function(req, res, next){
         });
     }
 });
+*/
 
 //listening on port 3000
 app.listen(3000);

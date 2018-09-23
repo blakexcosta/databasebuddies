@@ -1,0 +1,28 @@
+{
+  "name": "databasebuddies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blakexcosta/databasebuddies.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blakexcosta/databasebuddies/issues"
+  },
+  "homepage": "https://github.com/blakexcosta/databasebuddies#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.15",
+    "multer": "^1.3.1",
+    "mysql": "^2.16.0",
+    "pug": "^2.0.3"
+  }
+}

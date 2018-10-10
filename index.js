@@ -20,21 +20,21 @@ app.use(express.static('public'));
 
 
 //creating mysql connection
-//created a an ExampleDB, a user with only select permission, and 
+//created a an ExampleDB, a user with only select permission, and
 //a table with only 1 record w/ id and name as columns
-var connection = mysql.createConnection({
-  host:'localhost',
-  user:'rickrenardo',
-  password:'password',
-  database:'ExampleDB'
-});
-connection.connect();
-connection.query('SELECT * FROM example', function(err, rows,fields){
-	if (err) throw err
-	console.log("ID: " +  rows[0].id);
-	console.log("Fields: " + rows[0].name);
-});
-connection.end();
+// var connection = mysql.createConnection({
+//   host:'localhost',
+//   user:'rickrenardo',
+//   password:'password',
+//   database:'ExampleDB'
+// });
+// connection.connect();
+// connection.query('SELECT * FROM example', function(err, rows,fields){
+// 	if (err) throw err
+// 	console.log("ID: " +  rows[0].id);
+// 	console.log("Fields: " + rows[0].name);
+// });
+// connection.end();
 
 
 //home page
@@ -51,7 +51,7 @@ app.get('/person', function(req, res, next){
   if (!error && response.statusCode == 200) {
 	//body contains all of information
     console.log(body) // Print the google web page.
-	
+
   }
 });
 */

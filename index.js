@@ -5,6 +5,7 @@ var upload = multer();
 var request = require('request');
 var mysql = require('mysql');
 var app = express();
+var db = require('./database');
 
 
 //cant forget to do this step!!!, as it sets the view engine. defines parsing and tells use where our public images are
@@ -24,18 +25,20 @@ app.use(express.static('public'));
 //a table with only 1 record w/ id and name as columns
 var connection = mysql.createConnection({
   host:'localhost',
-  user:'rickrenardo',
-  password:'password',
-  database:'ExampleDB'
+  user:'root',
+  password:'student',
+  database:'beerbuddies_db'
 });
-connection.connect();
-connection.query('SELECT * FROM example', function(err, rows,fields){
-	if (err) throw err
-	console.log("ID: " +  rows[0].id);
-	console.log("Fields: " + rows[0].name);
-});
-connection.end();
-
+//connection.connect();
+//connection.query('SELECT * FROM example', function(err, rows,fields){
+//	if (err) throw err
+//	console.log("ID: " +  rows[0].id);
+//	console.log("Fields: " + rows[0].name);
+//});
+//connection.end();
+var resultBeers;
+resultBeers = db.getBeer('Bud');
+console.log(resultBeers);
 
 //home page
 app.get('/', function(req, res){

@@ -27,16 +27,16 @@
             try
             {
                 $someBeers = array();
-                $stmt = $this->dbh->prepare("select beer.INTBEERID as beerID,
-                (select beername.VCHBEERNAME from beername where beer.INTBEERID = beername.INTBEERID) as beerName,
-                (select category.VCHCATEGORY from category where beer.INTCATEGORYID = category.INTCATEGORYID) as categoryName,
-                (select style.VCHSTYLE from style where beer.INTSTYLEID = style.INTSTYLEID) as styleName,
-                (select brewer.VCHBREWER from brewer where beer.INTBREWERID = brewer.INTBREWERID) as brewerName,
-                beer.VCHADDRESS as address, beer.VCHCITY as city, beer.VCHSTATE as state, beer.VCHCOUNTRY as country,
-                beer.VCHDESCRIPTION as description, beer.VCHWEBSITE as website, beer.INTINTERNATIONALBITTERNESSUT as intBitternessUt,
-                beer.INTSTANDARDREFMETH as standRefMeth, beer.INTUNVPRODCODE as uniProdCode, beer.DATELASTUPDATED as lastUpdate,
-                beer.VCHCOORDINATES as coords, beer.DATEADDED as dateAdded
-                from beer limit 10;");
+                $stmt = $this->dbh->prepare("select Beer.INTBEERID as beerID,
+                (select Beername.VCHBEERNAME from Beername where Beer.INTBEERID = Beername.INTBEERID) as beerName,
+                (select Category.VCHCATEGORY from Category where Beer.INTCATEGORYID = Category.INTCATEGORYID) as categoryName,
+                (select Style.VCHSTYLE from Style where Beer.INTSTYLEID = Style.INTSTYLEID) as styleName,
+                (select Brewer.VCHBREWER from Brewer where Beer.INTBREWERID = Brewer.INTBREWERID) as brewerName,
+                Beer.VCHADDRESS as address, Beer.VCHCITY as city, Beer.VCHSTATE as state, Beer.VCHCOUNTRY as country,
+                Beer.VCHDESCRIPTION as description, Beer.VCHWEBSITE as website, Beer.INTINTERNATIONALBITTERNESSUT as intBitternessUt,
+                Beer.INTSTANDARDREFMETH as standRefMeth, Beer.INTUNVPRODCODE as uniProdCode, Beer.DATELASTUPDATED as lastUpdate,
+                Beer.VCHCOORDINATES as coords, Beer.DATEADDED as dateAdded
+                from Beer limit 10;");
                 
                 $stmt->setFetchMode(PDO::FETCH_CLASS, "Beer");
                 $stmt->execute();

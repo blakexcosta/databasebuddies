@@ -1,0 +1,8 @@
+sudo su - postgres
+psql
+\conninfo
+
+#change password, needs to be postgres as user and student as pw
+\password postgres
+#enter new password
+use `\q` to quit

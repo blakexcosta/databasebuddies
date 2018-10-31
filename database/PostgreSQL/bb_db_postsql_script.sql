@@ -19,7 +19,7 @@ SET row_security = off;
 -- Name: beerbuddies_db; Type: DATABASE; Schema: -; Owner: postgres
 --
 
-CREATE DATABASE beerbuddies_db WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'English_United States.1252' LC_CTYPE = 'English_United States.1252';
+CREATE DATABASE beerbuddies_db WITH TEMPLATE = template0 ENCODING = 'UTF8';
 
 
 ALTER DATABASE beerbuddies_db OWNER TO postgres;

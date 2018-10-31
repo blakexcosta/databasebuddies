@@ -3,7 +3,7 @@
 class Brewer 
 {
 	//Attributes
-	private $brewerID, $brewerName;
+	private $brewerid, $brewername;
 	
 	//Default constructor
     function __construct()
@@ -14,11 +14,11 @@ class Brewer
 	//Accessors
 	public function getBrewerID()
 	{
-		return $this->brewerID;
+		return $this->brewerid;
 	}
 	public function getBrewerName()
 	{
-		return $this->brewerName;
+		return $this->brewername;
 	}
 }
 

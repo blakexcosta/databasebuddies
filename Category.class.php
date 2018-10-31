@@ -3,7 +3,7 @@
 class Category
 {
 	//Attributes
-	private $categoryID, $categoryName;
+	private $categoryid, $categoryname;
 	
 	//Default constructor
     function __construct()
@@ -14,11 +14,11 @@ class Category
 	//Accessors
 	public function getCategoryID()
 	{
-		return $this->id;
+		return $this->categoryid;
 	}
 	public function getCategoryName()
 	{
-		return $this->categoryName;
+		return $this->categoryname;
 	}
 }
 

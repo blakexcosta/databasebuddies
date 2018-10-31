@@ -3,7 +3,7 @@
 class User
 {
 	//Attributes
-	private $userID, $userName, $firstName, $lastName, $password, $role;
+	private $userid, $username, $firstname, $lastname, $password, $role;
 	
 	//Default constructor
     function __construct()
@@ -14,19 +14,19 @@ class User
 	//Accessors
 	public function getUserID()
 	{
-		return $this->userID;
+		return $this->userid;
 	}
 	public function getUserName()
 	{
-		return $this->userName;
+		return $this->username;
 	}
 	public function getFirstName()
 	{
-		return $this->firstName;
+		return $this->firstname;
 	}
 	public function getLastName()
 	{
-		return $this->lastName;
+		return $this->lastname;
 	}
 	public function getPassword()
 	{

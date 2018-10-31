@@ -3,7 +3,7 @@
 class Style
 {
 	//Attributes
-	private $styleID, $styleName;
+	private $styleid, $stylename;
 	
 	//Default constructor
     function __construct()
@@ -14,11 +14,11 @@ class Style
 	//Accessors
 	public function getStyleID()
 	{
-		return $this->styleID;
+		return $this->styleid;
 	}
 	public function getStyleName()
 	{
-		return $this->styleName;
+		return $this->stylename;
 	}
 }
 

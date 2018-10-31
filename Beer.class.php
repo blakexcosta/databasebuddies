@@ -4,7 +4,7 @@
 class Beer
 {
     //Beer attributes
-    private $beerID, $beerName, $brewerName, $categoryName, $styleName, $address, $city, $state, $country, $description, $website, $alcVol, $intBitternessUt, $standRefMeth, $uniProdCode, $lastUpdated, $coords, $dateAdded;
+    public $beerid, $beername, $brewername, $categoryname, $stylename, $address, $city, $state, $country, $description, $website, $alcvol, $intitternessut, $standrefmeth, $uniprodcode, $lastupdated, $coords, $dateadded;
     
 	//Default constructor
     function __construct()
@@ -15,27 +15,27 @@ class Beer
     //Accessors
     public function getBeerID()
     {
-        return $this->beerID;
+        return $this->beerid;
     }
     public function getBeerName()
     {
-        return $this->beerName;
+        return $this->beername;
     }
     public function getBrewerName()
     {
-        return $this->brewerName;
+        return $this->brewername;
     }
     public function getCategoryName()
     {
-        return $this->categoryName;
+        return $this->categoryname;
     }
     public function getStyleName()
     {
-        return $this->styleName;
+        return $this->stylename;
     }
     public function getAddress()
     {
-        return $this->address();
+        return $this->address;
     }
     public function getCity()
     {
@@ -59,23 +59,23 @@ class Beer
     }
     public function getAlcVol()
     {
-        return $this->alcVol;
+        return $this->alcvol;
     }
     public function getIntBitternessUt()
     {
-        return $this->intBitternessUt;
+        return $this->intbitternessut;
     }
     public function getStandRefMeth()
     {
-        return $this->standRefMeth;
+        return $this->standrefmeth;
     }
     public function getUniProdCode()
     {
-        return $this->uniProdCode;
+        return $this->uniprodcode;
     }
     public function getLastUpdated()
     {
-        return $this->lastUpdated;
+        return $this->lastupdated;
     }
     public function getCoords()
     {
@@ -83,7 +83,7 @@ class Beer
     }
     public function getDateAdded()
     {
-        return $this->dateAdded;
+        return $this->dateadded;
     }
 
 }

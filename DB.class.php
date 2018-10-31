@@ -1,4 +1,13 @@
 <?php
+    //Require the classes
+    require_once("Beer.class.php");
+    require_once("Brewer.class.php");
+    require_once("Style.class.php");
+    require_once("Category.class.php");
+    require_once("BeerRequest.class.php");
+    require_once("Review.class.php");
+    require_once("User.class.php");
+
 
     class PDO_DB
     {
@@ -47,7 +56,7 @@
             catch (PDOException $pdoex)
             {
                 echo "<h2>Unable to retrieve the beers!</h2>";
-								echo $pdoex;
+                echo $pdoex;
             }
         }
 	}

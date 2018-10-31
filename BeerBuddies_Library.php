@@ -67,7 +67,34 @@ class BeerBuddies_Library
         }
         else
         {
-            var_dump($beerData);
+            $beerListString = "<h1>Example Beer:</h1>";
+            
+            foreach ($beerData as $beer)
+            {
+                $beerListString .= "<div class='beerItem'>";
+                //var_dump($beer);
+                $beerListString .= "<h3>Beer: ".$beer->getBeerName()."</h3>";
+                $beerListString .= "<p>Style: ".$beer->getStyleName()."</p>";
+                $beerListString .= "<p>Category: ".$beer->getCategoryName()."</p>";
+                $beerListString .= "<p>Brewer: ".$beer->getBrewerName()."</p>";
+                $beerListString .= "<p>Address: ".$beer->getAddress()."</p>";
+                $beerListString .= "<p>City: ".$beer->getCity()."</p>";
+                $beerListString .= "<p>State: ".$beer->getState()."</p>";
+                $beerListString .= "<p>Country: ".$beer->getCountry()."</p>";
+                $beerListString .= "<p>Coordinates: ".$beer->getCoords()."</p>";
+                $beerListString .= "<p>Description: ".$beer->getDescription()."</p>";
+                $beerListString .= "<p>Website: <a href='".$beer->getWebsite()."'>Site Link</a>";
+                $beerListString .= "<p>Alcohol Volume: ".$beer->getAlcVol()."</p>";
+                $beerListString .= "<p>International Bitterness Unit: ".$beer->getIntBitternessUt()."</p>";
+                $beerListString .= "<p>Standard Reference Method: ".$beer->getStandRefMeth()."</p>";
+                $beerListString .= "<p>Universal Product Code: ".$beer->getUniProdCode()."</p>";
+                $beerListString .= "<p>Last Updated: ".$beer->getLastUpdated()."</p>";
+                $beerListString .= "<p>Date Added: ".$beer->getDateAdded()."</p>";
+                
+            }
+            
+            echo $beerListString;
+            //var_dump($beerData);
         }
     }
 }

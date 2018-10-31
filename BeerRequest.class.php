@@ -2,7 +2,7 @@
 
 class BeerRequest
 {
-	private $requestID, $beerName, $brewerName, $categoryName, $styleName, $address, $city, $state, $country, $description, $website, $alcVol, $intBitternessUt, $standRefMeth, $unvProdCode, $coords, $dateRequested;
+	private $requestid, $beername, $brewername, $categoryname, $stylename, $address, $city, $state, $country, $description, $website, $alcvol, $intbitternessut, $standrefmeth, $unvprodcode, $coords, $daterequested;
     
 	//Default constructor
     function __construct()
@@ -13,23 +13,23 @@ class BeerRequest
     //Accessors
     public function getRequestID()
     {
-        return $this->requestID;
+        return $this->requestid;
     }
     public function getBeerName()
     {
-        return $this->beerName;
+        return $this->beername;
     }
     public function getBrewerName()
     {
-        return $this->brewerName;
+        return $this->brewername;
     }
     public function getCategoryName()
     {
-        return $this->categoryName;
+        return $this->categoryname;
     }
     public function getStyleName()
     {
-        return $this->styleName;
+        return $this->stylename;
     }
     public function getAddress()
     {
@@ -57,19 +57,19 @@ class BeerRequest
     }
     public function getAlcVol()
     {
-        return $this->alcVol;
+        return $this->alcvol;
     }
     public function getIntBitternessUt()
     {
-        return $this->intBitternessUt;
+        return $this->intbitternessut;
     }
     public function getStandRefMeth()
     {
-        return $this->standRefMeth;
+        return $this->standrefmeth;
     }
     public function getUnvProdCode()
     {
-        return $this->unvProdCode;
+        return $this->unvprodcode;
     }
     public function getCoords()
     {
@@ -77,7 +77,7 @@ class BeerRequest
     }
     public function getDateRequested()
     {
-        return $this->dateRequested;
+        return $this->daterequested;
     }
 }
 

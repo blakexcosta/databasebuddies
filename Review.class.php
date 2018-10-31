@@ -3,7 +3,7 @@
 class Review
 {
 	//Attributes
-	private $reviewID, $beerID, $userID, $date, $starRating, $review;
+	private $reviewid, $beerid, $userid, $date, $starrating, $review;
 	
 	//Default constructor
     function __construct()
@@ -14,15 +14,15 @@ class Review
 	//Accessors
 	public function getReviewID()
 	{
-		return $this->reviewID;
+		return $this->reviewid;
 	}
 	public function getBeerID()
 	{
-		return $this->beerID;
+		return $this->beerid;
 	}
 	public function getUserID()
 	{
-		return $this->userID;
+		return $this->userid;
 	}
 	public function getDate()
 	{
@@ -30,7 +30,7 @@ class Review
 	}
 	public function getStarRating()
 	{
-		return $this->starRating;
+		return $this->starrating;
 	}
 	public function getReview()
 	{

@@ -1,6 +1,8 @@
 <?php
 
-    require_once("BeerBuddies_Library.php");
+		require("Header.html");		
+	    
+		require_once("BeerBuddies_Library.php");
     
     $library = new BeerBuddies_Library();
 

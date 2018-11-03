@@ -8,7 +8,8 @@
 
     echo $library->headerConfig();
     echo $library->navigationConfig();
-    echo $library->listSomeBeerInfo();
+    //echo $library->listSomeBeerInfo();
+    echo $library->listBeersViaName();
     echo $library->footerConfig();
 
 ?>

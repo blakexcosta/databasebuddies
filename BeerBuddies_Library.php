@@ -34,7 +34,11 @@ class BeerBuddies_Library
     //The site's navigation bar structure
     public function navigationConfig()
     {	
-        $navigationString = "<nav id='siteNavigation'><p><a href='index.php'>Home</a></p></nav>";
+        // if no user is logged in
+        $navigationString = "<div id='user-nav'><a href='login.php'>Log In</a><a href='signup.php'>Sign Up</a></div>";
+        // if user is logged in, display different nav
+        //$navigationString = "<div id='user-nav'><a href=#>Sign out</a></div>";
+        $navigationString .= "<nav id='siteNavigation'><p><a href='index.php'>Home</a></p></nav>";
 
         //Send the HTML Structure
         return $navigationString;

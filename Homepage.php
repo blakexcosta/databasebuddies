@@ -2,7 +2,7 @@
 <html>
 
    <head>
-      <title>BeerBuddies</title>
+      <title>BeerBuddies Homepage (temporary, delete this file when done)</title>
    </head>
 
    <body>

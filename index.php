@@ -1,12 +1,9 @@
 <?php
-	require("Layout.html");
-
-	require_once("BeerBuddies_Library.php");
-
-	require("Header.html");		
+	require_once("BeerBuddies_Library.php");		
 	    
 	require_once("BeerBuddies_Library.php");
-    
+ 	
+	require("Homepage.php");   
     $library = new BeerBuddies_Library();
 
     echo $library->headerConfig();

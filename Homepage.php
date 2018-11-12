@@ -6,13 +6,34 @@
    </head>
 
    <body>
-	<ul>
-		<li><a href="index.php">Home</li>
-		<li><a href="AdvancedSearch.php">Advanced Search</li>
-		<li><a href="SimilarBeers.php">Similar Beers</li>
-		<li><a href="GetSome.php">Where To Get Some</li>
-		<li><a href="PlacesNear.php">Places Near Me</li>
-		<li><a href="Settings.php">Settings</li>
-	</ul>
+	<?php
+	require("Header.html");		
+	?>
+	<p>
+	<b>This is the Home page</b>
+	lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum
+	</p>
+
+	<!-- Table -->
+	<table style="width:100%">
+	  <tr>
+		<th>Firstname</th>
+		<th>Lastname</th> 
+		<th>Age</th>
+	  </tr>
+	  <tr>
+		<td>Jill</td>
+		<td>Smith</td> 
+		<td>50</td>
+	  </tr>
+	  <tr>
+		<td>Eve</td>
+		<td>Jackson</td> 
+		<td>94</td>
+	  </tr>
+	</table>
+
+
+
 </body>
 </html>

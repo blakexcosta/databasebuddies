@@ -7,7 +7,7 @@
 
    <body>
 	<?php
-	require("Header.html");		
+	require("Header.php");		
 	?>
 	<p>
 	<b>This is the Home page</b>

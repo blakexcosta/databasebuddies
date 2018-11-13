@@ -1,6 +1,6 @@
 <?php
 
-		require("Header.html");		
+		require("Header.php");		
 	    
 		require_once("BeerBuddies_Library.php");
     

@@ -5,7 +5,7 @@
 	
 	<body>
 		<?php
-			require("Header.html");	    
+			require("Header.php");	    
 		?>
 		
 		<h1>Similar Beers Page</h1>

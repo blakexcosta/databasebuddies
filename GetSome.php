@@ -5,7 +5,7 @@
 	
 	<body>
 		<?php
-			require("Header.html");	    
+			require("Header.php");	    
 		?>
 		
 		<h1>Get Some Page</h1>

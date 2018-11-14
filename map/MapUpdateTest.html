@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Update FeatureLayer using applyEdits() - 4.9</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.9/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.9/"></script>
+
+<!--Link to css and js scripts seperated from original example -->
+  <link rel="stylesheet" type="text/css" href="update.css">
+  <script src="update.js"></script>
+
+
+</head>
+
+<body>
+  <div id="editArea" class="editArea-container">
+    <div id="addFeatureDiv">
+      <h3 class="list-heading">Report Incidents</h3>
+      <ul style="font-size: 13px; padding-left: 1.5em;">
+        <li>Click Add incident button</li>
+        <li>Click on the map to create the incident</li>
+        <li>Change the incident type</li>
+      </ul>
+      <input type="button" class="edit-button" value="Add incident" id="btnAddFeature">
+    </div>
+
+    <div id="updateInstructionDiv" style="text-align:center">
+      <p class="or-wrap">
+        <span class="or-text">Or</span>
+      </p>
+      <p>Select an incident to edit or delete.</p>
+    </div>
+
+    <div id="featureUpdateDiv" style="display:none; margin-top: 1em;">
+      <h3 class="list-heading">Enter the incident information</h3>
+
+      <div id="attributeArea">
+        <div id="formDiv"></div>
+        <input type="button" class="edit-button" value="Update incident info"
+          id="btnUpdate">
+      </div>
+
+      <div id="deleteArea">
+        <input type="button" class="edit-button" value="Delete incident" id="btnDelete">
+      </div>
+    </div>
+  </div>
+  <div id="viewDiv"></div>
+</body>
+</html>

@@ -1,3 +1,40 @@
+<?php
+/*$db_hostname = 'localhost';
+$db_username = 'root';
+$db_password = 'HerroBob!';
+$db_database = 'BeerBuddies_DB';
+*/
+//port 5432
+// Database Connection String
+//$con = pg_connect($db_hostname,$db_username,$db_password);
+
+/*
+  try
+            {
+                //May have to change this line to connect to your MySQL
+                $con->dbh = new PDO('pgsql:host=127.0.0.1;port=5432;dbname=beerbuddies_db', 'postgres', 'student');
+                $con->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                                $con->dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+            }
+            catch (PDOException $pdoex)
+            {
+                echo "<h2>Unable to connect to the Beer Buddies Database.</h2>";
+                                echo $pdoex;
+            }
+*/
+//require_once("BeerBuddies_Library.php");
+
+	/*
+$con = pg_connect("host=localhost port=5432  dbname=beerbuddies_db user=postgres password=student");
+if (!$con)
+  {
+  die('Could not connect: '. pg_last_error());
+  }
+
+mysql_select_db($db_database, $con);
+*/
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -16,17 +53,18 @@
 	<?php
 	//$library = new BeerBuddies_Library();
 	
-	$term = $_POST['term'];	
+	
 	
 	if (!empty($term)) {
 		//$this->dbh = new PDO('pgsql:host=127.0.0.1;port=5432;dbname=beerbuddies_db', 'postgres', 'student');
+		$term = $_POST['term'];
 		echo "searching for: '" . $term . "'";
 		//echo $library->listBeersViaName();
 		//$someval = $library->listBeersViaName();
 		//echo $someval;
 		//$conn = pg_connect('pgsql:host=127.0.0.1;port=5432;dbname=beerbuddies_db', 'postgres', 'student');
 		
-		
+		/*
 		$conn = pg_connect("host=127.0.0.1 port=5432 dbname=beerbuddies_db user=postgres password=student");
 		if(!$conn) {
 				echo "error occured\n";
@@ -34,20 +72,19 @@
 		}
 	
 		//select "INTBEERID", "VCHBEERNAME" from beerbuddies_db.beername WHERE "VCHBEERNAME" like '%Pocus%';
-		$result = pg_query($conn, "select \"INTBEERID\", \"VCHBEERNAME\" from beerbuddies_db.BeerName where \"VCHBEERNAME\" like '%".$term."%';");
-		//$result = pg_query($conn, "select * from beerbuddies_db.beername;");		
+		//$result = pg_query($conn, "select \"INTBEERID\", \"VCHBEERNAME\" from beerbuddies_db.BeerName where \"VCHBEERNAME\" like '%".$term."%';");
+		$result = pg_query($conn, "select * from beerbuddies_db.beername;");		
 		if (!$result){
 			echo "An error occured retrieving results bro\n";
 			exit;	
 		}
-		
-		echo "<br />\n";
+
 		while ($row = pg_fetch_row($result)){
-			echo "Result: ".$row[1];
+			echo $row[0];
 			echo "<br />\n";
 
 		}
-		
+		*/
 
 		//Ambr, Abhi Beer, Full Boar, The Public, S.O.S
 /*		

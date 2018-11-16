@@ -19,20 +19,115 @@ class TestPHPunit extends TestCase
 		$this->assertSame(2,1+1);
 	}
 
-	public function testDBResults(){
-		$conn = pg_connect("host=127.0.0.1 port=5432 dbname=beerbuddies_db user=postgres password=student");
-		if(!$conn) {
-				exit;		
+	
+	public function testDBRetrieval(){
+		
+		try{
+			$conn = new PDO('pgsql:host=127.0.0.1;port=5432;dbname=beerbuddies_db', 'postgres', 'student');
+     		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        	$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+			$result = $conn->query("select * from beerbuddies_db.BeerName where \"VCHBEERNAME\"=\"Hocus Pocus\";");
+			//$result = pg_query($conn, "select * from beerbuddies_db.beername;");		
+			if (!$result){
+				exit;	
+			}
+			if ($result->num_rows > 0){
+				while($row = $result->fetch_assoc()){
+					echo $row[1];
+				}
+			}
+			$this->assertSame("Hocus Pocus", $result);
+			$conn->close();
 		}
-		$result = pg_query($conn, "select * from beerbuddies_db.BeerName where \"VCHBEERNAME\"=\"Hocus Pocus\";");
-		//$result = pg_query($conn, "select * from beerbuddies_db.beername;");		
-		if (!$result){
-			exit;	
+		catch(PDOException $e){
+			echo "error";
 		}
 		
-		$this->assertSame("Hocus Pocus", $result);
+	}
+
+
+/*
+public function testDBInsert(){
 		
+		try{
+			$conn = new PDO('pgsql:host=127.0.0.1;port=5432;dbname=beerbuddies_db', 'postgres', 'student');
+     		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        	$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+			//$conn->query();
+			$result = $conn->query("select * from beerbuddies_db.BeerName where \"VCHBEERNAME\"=\"Hocus Pocus\";");
+			//$result = pg_query($conn, "select * from beerbuddies_db.beername;");		
+			if (!$result){
+				exit;	
+			}
+			if ($result->num_rows > 0){
+				while($row = $result->fetch_assoc()){
+					echo $row[1];
+				}
+			}
+			$this->assertSame("Hocus Pocus", $result);
+			$conn->close();
+		}
+		catch(PDOException $e){
+			echo "error";
+		}
 		
 	}
 }
+
+
+public function testDBDelete(){
+		
+		try{
+			$conn = new PDO('pgsql:host=127.0.0.1;port=5432;dbname=beerbuddies_db', 'postgres', 'student');
+     		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        	$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+			$result = $conn->query("select * from beerbuddies_db.BeerName where \"VCHBEERNAME\"=\"Hocus Pocus\";");
+			//$result = pg_query($conn, "select * from beerbuddies_db.beername;");		
+			if (!$result){
+				exit;	
+			}
+			if ($result->num_rows > 0){
+				while($row = $result->fetch_assoc()){
+					echo $row[1];
+				}
+			}
+			$this->assertSame("Hocus Pocus", $result);
+			$conn->close();
+		}
+		catch(PDOException $e){
+			echo "error";
+		}
+		
+	}
+}
+
+
+
+public function testDBUpdate(){
+		
+		try{
+			$conn = new PDO('pgsql:host=127.0.0.1;port=5432;dbname=beerbuddies_db', 'postgres', 'student');
+     		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        	$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+			$result = $conn->query("select * from beerbuddies_db.BeerName where \"VCHBEERNAME\"=\"Hocus Pocus\";");
+			//$result = pg_query($conn, "select * from beerbuddies_db.beername;");		
+			if (!$result){
+				exit;	
+			}
+			if ($result->num_rows > 0){
+				while($row = $result->fetch_assoc()){
+					echo $row[1];
+				}
+			}
+			$this->assertSame("Hocus Pocus", $result);
+			$conn->close();
+		}
+		catch(PDOException $e){
+			echo "error";
+		}
+		
+	}
+}
+*/
+
 

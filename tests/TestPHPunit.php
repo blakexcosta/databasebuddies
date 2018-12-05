@@ -32,11 +32,13 @@ class TestPHPunit extends TestCase
 				exit;	
 			}
 			if ($result->num_rows > 0){
-				while($row = $result->fetch_assoc()){
-					echo $row[1];
-				}
+				//while($row = $result->fetch_assoc()){
+				//	echo $row[1];
+				//}
+				$information = $result->fetch_assoc();
+				$info = $information[1];
 			}
-			$this->assertSame("Hocus Pocus", $result);
+			$this->assertSame("Hocus Pocus", $info);
 			$conn->close();
 		}
 		catch(PDOException $e){
@@ -127,7 +129,7 @@ public function testDBUpdate(){
 		}
 		
 	}
-}
 */
+}
 
 

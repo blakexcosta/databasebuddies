@@ -3,133 +3,26 @@
   <title>BeerBuddies Beer Map</title>
 
   <style>
-    html,
-    body,
-    #viewDiv {
-    	<!------
-	position: relative;
-      padding: 0;
-      margin: 0;
-      height: 100%;
-      width: 100%; 
-      background-color: "Grey";
-    }
-	
-	
-	
+      html,
+      body,
+      #viewDiv {
+      	<!------
+  	position: relative;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        background-color: "Grey";
+      }
   </style>
 
   <link rel="stylesheet" href="https://js.arcgis.com/4.9/esri/css/main.css">
   <script src="https://js.arcgis.com/4.9/"></script>
-
-  <script>
-    require([
-      "esri/Map",
-      "esri/views/MapView",
-	  "esri/views/SceneView",
-	  "esri/layers/SceneLayer",
-	  "esri/renderers/SimpleRenderer"
-    ], function(Map, MapView, SceneView, SceneLayer) {
-		const map = new Map({
-	        basemap: "osm" //Additional basemap options are:  "satellite", "hybrid", "topo", "gray", "oceans", "osm", "national-geographic". 
-	    });
-		const view = new MapView({
-	        container: "viewDiv",
-	        map: map,
-	        zoom: 14,
-	        center: [-77.609481, 43.157694] // longitude, latitude
-	    });
-		var sceneView;
-		let attributeEditing;
-
-		// Set a basic symbol on a layer to visualize all features the same way
-		var breweryMarker = {
-		  type: "simple",  // autocasts as new SimpleRenderer()
-		  symbol: {
-		    type: "simple-marker",  // autocasts as new SimpleMarkerSymbol()
-		    size: 15,
-		    style: "diamond",
-		    color: "green",
-		    outline: {  // autocasts as new SimpleLineSymbol()
-		      width: 0.5,
-		      color: "white"
-		    }
-		  }
-		};    	
-    
-	
-	
-		function AddLayer () {
-		
-			require(["esri/Map", "esri/layers/FeatureLayer"], function (Map, FeatureLayer){
-			
-			var URL_root = "https://services2.arcgis.com/RQcpPaCpMAXzUI5g/arcgis/rest/services/Beer_Database_Data/FeatureServer/0?token=ut1VbLCnKq2KQnElb4NINDGtp_tECcNmxGj6_DapMRF3NS0UDPJd5d8BrOoEbaGsv_7O8bX63ya9XIPr09PQI2Jere_3Q9ionV7miz3GMS4jFiA0PzL5821lCAr9_Oq9g-cBb3hTLlv_o_s-hWm6aL9ZZeTN4lkLJkfYrfVqWWz6c8UooMaBjACjB3Bf6Bj-RyZDotFXk1EHy8RRyVG_Dbq0bObDd0tiuZSMpZMBIlYJZ7WawZhBIFQnyDvVEB6hBMATPaShjqS49u7taS1dUA..";
-			var layerURL = URL_root + 0;
-			
-			var FeatureLayer = new FeatureLayer({
-				url: layerURL,
-				renderer: breweryMarker
-			});
-
-			map.layers.add(FeatureLayer);
-			});
-		}
-
-	    view.on("click", function(event) {
-	        // clear previous feature selection
-	        unselectFeature();
-
-	        view.hitTest(event).then(function(response) {
-	          // If a user clicks on a brewery feature, select the feature.
-	          if (response.results[0].graphic && response.results[0].graphic.layer.id == "incidentsLayer") {
-	            selectFeature(response.results[0].graphic.attributes[featureLayer.objectIdField]);
-	          }
-	        });
-	    });	
-
-		function selectFeature(objectId) {
-	        // query feature from the server
-	        featureLayer.queryFeatures({
-	          objectIds: [objectId],
-	          outFields: ["*"],
-	          returnGeometry: true
-	        }).then(function(results) {
-	          if (results.features.length > 0) {
-	            editFeature = results.features[0];
-
-	            // display the attributes of selected feature in the form
-	            featureForm.feature = editFeature;
-
-	            // highlight the feature on the view
-	            view.whenLayerView(editFeature.layer).then(function(layerView){
-	              highlight = layerView.highlight(editFeature);
-	            });
-
-	            //attributeEditing.style.display = "block";
-	            //updateInstructionDiv.style.display = "none";
-	          }
-	        });
-	    }
-      	// *****************************************************
-      	// Remove the feature highlight and remove attributes
-      	// from the feature form.
-      	// *****************************************************
-	    function unselectFeature() {
-	        //attributeEditing.style.display = "none";
-	        //updateInstructionDiv.style.display = "block";
-	        featureForm.feature = null;
-	        if (highlight){
-	          highlight.remove();
-	        }
-	    }	 
-
-	    AddLayer ();
-	});
-  </script>
+  <script src="map.js"></script>
 </head>
 
 <body>
   <div id="viewDiv"></div>
-  
+
 </body>
 </html>

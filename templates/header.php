@@ -60,6 +60,7 @@
 
   				<ul id="nav-menu" class="inline-menu">
   					<li class="nav-item"><a href="index.php">Home</a></li>
+  					<li class="nav-item"><a href="AllBeer.php">All Beers</a></li>
   					<li class="nav-item"><a href="beermap.php">Beer Map</a></li>
   					<?php if(!empty($_SESSION['bb_loggedin']) && exists($_SESSION['bb_loggedin'])) { ?>
   					<li class="nav-item"><a href="settings.php">Settings</a></li>

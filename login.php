@@ -1,17 +1,19 @@
 <?php
 
-		require("Header.php");		
+		// require("Header.php");		
 	    
-		require_once("BeerBuddies_Library.php");
+		// require_once("BeerBuddies_Library.php");
     
-    $library = new BeerBuddies_Library();
+  //   $library = new BeerBuddies_Library();
 
-    echo $library->headerConfig();
-    echo $library->navigationConfig();
+  //   echo $library->headerConfig();
+  //   echo $library->navigationConfig();
+    require_once('DB.class.php');
+    $dbh = new PDO_DB();
+    $page_title="Log In";
     
     // login content
-    echo "<div id='login-content'>".
-    		"<h1>Log In</h1>" .
+    $page_content = "<div id='login-content'>".
     		"<form action='' method='post'>".
     		"<label>Username</label>".
     		"<input type='text' name='username' placeholder ='username'><br/>".
@@ -21,6 +23,7 @@
     		"</form>".
     	"</div>";
 
-    echo $library->footerConfig();
+    //echo $library->footerConfig();
 
 ?>
+<?php include 'templates/main_template.php'; ?>

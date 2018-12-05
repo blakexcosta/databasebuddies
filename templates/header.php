@@ -12,10 +12,40 @@
   		</head>
   		<body>
   			<div id="nav-bar">
-  				<form id="search-beers" class="inline-menu">
+  				<form id="search-beers" class="inline-menu" action="" method="post">
   					<input type="text" name="beer-search" placeholder="Search Beers">
   					<input type="submit" value="Search">
   				</form>
+				<?php
+					//checking that the variable beer-search is set
+					if (isset($_POST['beer-search'])){
+						$term = $_POST['beer-search'];
+						//ain't broke, don't fix it, redundant but needed
+						if (!empty($term)) {
+							//echo out what searching for
+							echo "searching for: '" . $term . "'";
+							
+							//establishing a connection to the database 
+							$conn = pg_connect("host=127.0.0.1 port=5432 dbname=beerbuddies_db user=postgres password=student");
+							if(!$conn) {
+									echo "error occured\n";
+									exit;		
+							}
+							//getting results from the query
+							$result = pg_query($conn, "select \"INTBEERID\", \"VCHBEERNAME\" from beerbuddies_db.BeerName where \"VCHBEERNAME\" like '%".$term."%';");
+							if (!$result){
+								echo "An error occured retrieving results bro\n";
+								exit;	
+							}
+							//printing out all the beers found.
+							echo "<br />\n";
+							while ($row = pg_fetch_row($result)){
+								echo "Result: ".$row[1];
+								echo "<br />\n";
+							}
+						}
+					}
+				?>
   				<a href="#" id="adv-search" class="inline-menu">Advanced Search</a>
 
   				<ul id="nav-menu" class="inline-menu">

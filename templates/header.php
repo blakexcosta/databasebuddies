@@ -24,6 +24,7 @@
   					<li class="nav-item"><a href="settings.php">Settings</a></li>
   					<li class="nav-item"><a href="#" id="logout">Log out</a></li>
   					<?php } else { ?>
+                    <li class="nav-item"><a href='Add_Beer.php'>Add Beer</a></li>
   					<li class="nav-item"><a href="signup.php">Sign Up</a></li>
   					<li class="nav-item"><a href="login.php">Log In</a></li>
   					<?php } ?>

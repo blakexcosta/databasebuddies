@@ -360,7 +360,8 @@
 
         public function insertBeer($beerName, $category, $style, $brewer, $address, $city, $state, $country, $description, $website, $alchol, $bitterness, $reference, $product)
         {
-            $stmt = $this->dbh->prepare('insert into beerbuddies_db.Beer Beer."INTBEERID" ');
+            $stmt = $this->dbh->prepare('insert into beerbuddies_db.Beername (vchbeername) VALUES (:beerName)');
+            $stmt->execute(array("beerName"=>$beerName));
         }
 	}
 ?>

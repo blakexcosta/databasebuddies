@@ -89,6 +89,20 @@ p, h2 {
 	margin-bottom: 3%;
 }
 
+#add-beer {
+	width:30%;
+	margin:auto;
+	border: 3px solid #265074;
+	padding: 3% 7%;
+}
+
+#add-beer input {
+	line-height: 2em;
+	width:100%;
+	font-size: 1.1em;
+	margin-bottom: 3%;
+}
+
 html,body, #viewDiv {
   	position: relative;
     padding: 0;

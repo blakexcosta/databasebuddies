@@ -360,8 +360,25 @@
 
         public function insertBeer($beerName, $category, $style, $brewer, $address, $city, $state, $country, $description, $website, $alchol, $bitterness, $reference, $product)
         {
-            $stmt = $this->dbh->prepare('insert into beerbuddies_db.Beername (vchbeername) VALUES (:beerName)');
-            $stmt->execute(array("beerName"=>$beerName));
+            try {
+                $stmt = $this->dbh->prepare('insert into beerbuddies_db.Beername (vchbeername) VALUES (:beerName)');
+                $stmt->execute(array("beerName"=>$beerName));
+
+                $stmt = $this->dbh->prepare('select Beername."INTBEERID" FROM beerbuddies_db WHERE Beername."VCHBEERNAME" = :beerName');
+                $stmt->execute(array("beerName"=>$beerName));
+                $id = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+                $stmt = $this->dbh->prepare('insert into beerbuddies_db.beer (intbeerid, intcategoryid, intstyleid, intbrewerid, vchaddress, vchcity, vchstate, vchcountry, vchdescription, vchwebsite, INTALCVOL, INTINTERNATIONALBITTERNESSUT, INTSTANDARDREFMETH, INTUNVPRODCODE)
+                VALUES (:beerid, :category, :style, :brewer, : address, :city, :state, :country, :description, :website, :alcol, :bitterness, :reference, $product)');
+
+                $stmt->execute(array("beerid"=>$id['INTBEERID'], "category"=>$category, "style"=>$style, "brewer"=>$style, "address"=>$address,
+                "city"=>$city, "state"=>$state, "country"=>$country, "description"=>$description, "website"=>$website, "alchol"=>$alchol,
+                "bitterness"=>$bitterness, "reference"=>$reference, "product"=>$product));
+
+            } catch (PDOException $pdoex) {
+                echo "<h2>Unable to add beer!</h2>";
+                echo $pdoex;
+            }
         }
 	}
 ?>

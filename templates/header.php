@@ -1,4 +1,4 @@
-<?php 
+<?php
  	$page = "BeerBuddies | " . $page_title;
 ?>
 <!DOCTYPE html>
@@ -41,12 +41,12 @@
 						if (!empty($term)) {
 							//echo out what searching for
 							echo "searching for: '" . $term . "'";
-							
-							//establishing a connection to the database 
+
+							//establishing a connection to the database
 							$conn = pg_connect("host=127.0.0.1 port=5432 dbname=beerbuddies_db user=postgres password=student");
 							if(!$conn) {
 									echo "error occured\n";
-									exit;		
+									exit;
 							}
 							//getting results from the query
 							$result = pg_query($conn, "select Beer.\"INTBEERID\" as BeerID,
@@ -62,12 +62,12 @@
                 where BeerName.\"VCHBEERNAME\" LIKE '%".$term."%';");
 							if (!$result){
 								echo "An error occured retrieving results bro\n";
-								exit;	
+								exit;
 							}
 							//printing out all the beers found.
 							echo "<br />\n";
 							while ($row = pg_fetch_row($result)){
-								echo "Name: ".$row[1]." Style: ".$row[3]." Brewer: ".$row[4]." City: ".$row[7]." Country: ".$row[8];
+								echo "<p><b>Name:</b> ".$row[1]." <br/> <b>Style:</b> ".$row[3]."<br/> <b>Brewer:</b> ".$row[4]."<br/> <b>City:</b> ".$row[7]." <b>Country:</b> ".$row[8]."<br/><b>Description:</b> ".$row[9]."</br> <b>Website:</b> <a href='".$row[10]."'>".$row[1]." Website</a> </p>";
 								echo "<br />\n";
 							}
 						}

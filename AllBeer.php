@@ -1,9 +1,9 @@
 <?php
-	 //require_once("BeerBuddies_Library.php");		
-	    
+	 //require_once("BeerBuddies_Library.php");
+
 	// require_once("BeerBuddies_Library.php");
- 	
-	// require("Homepage.php");   
+
+	// require("Homepage.php");
  //    $library = new BeerBuddies_Library();
 
  //    echo $library->headerConfig();
@@ -31,9 +31,9 @@
                 '<th>Country</th>'.
                 '<th>Description</th>'.
                 '<th>Website</th>'.
-                '<th>Alcohol Volume</th>'.
-                "<th>Int'l Bitterness Unit</th>".
-                "<th>Int'l Standard Ref. Meth.</th>".
+                '<th>Alcohol by Volume</th>'.
+                "<th>International Bitterness Units</th>".
+                "<th>Standard Reference Method</th>".
                 '<th>Universal Product Code</th>'.
             '</tr>';
             foreach($featuredBeers as $beer) {
@@ -56,4 +56,3 @@
             }
 ?>
 <?php include 'templates/main_template.php'; ?>
-

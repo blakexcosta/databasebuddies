@@ -1,0 +1,101 @@
+<?php
+    require_once('DB.class.php');
+    //include 'templates/main_template.php';
+    $dbh = new PDO_DB();
+    $styles = $dbh->retrieveAllStyles();
+    $categories = $dbh->retrieveAllCategories();
+    $brewers = $dbh->retrieveAllBrewers();
+    $page_title = "Home";
+    $page_content="";
+ 	//$page = "BeerBuddies | " . $page_title;
+?>
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  			<meta name="viewport" content="width=device-width,initial-scale=1">
+  			<title><?php echo $page;?></title>
+  			<link rel="stylesheet" href="style.css" type="text/css">
+  		</head>
+  		<body>
+  			<div id="nav-bar">
+  				<form id="search-beers" class="inline-menu" action="" method="post">
+  					<!--Text box for beer name-->
+                    <input type="text" name="beer-name" placeholder="Enter Beer Name">
+                    <br/>
+
+                    <!--Dropdown for category -->
+                    <select name="beer-category">
+                        <?php
+                            foreach ($categories as $category)
+                            {
+                                echo "<option value='" . $category['INTCATEGORYID'] . "'>". $category['VCHCATEGORY'] ."</option>";
+                            }
+                        ?>
+                    </select>
+                    <br/>
+
+                    <!--Dropdown for styles-->
+                    <select name="beer-styles">
+                        <?php
+                            foreach ($styles as $style)
+                            {
+                                echo "<option value='" . $style['INTSTYLEID'] . "'>". $style['VCHSTYLE'] ."</option>";
+                            }
+                        ?>
+                    </select>
+                    <br/>
+
+                    <!--Dropdown for brewer -->
+                    <select name="beer-brewer">
+                        <?php
+                            foreach ($brewers as $brewer)
+                            {
+                                echo "<option value='" . $brewer['INTBREWERID'] . "'>". $brewer['VCHBREWER'] ."</option>";
+                            }
+                        ?>
+                    </select>
+                    <br/>
+
+                    <!--Text boxes for Address, city, state, country, decsription, website,
+                     alcohol volume, IBU, Standard Reference Method, Universal Product Code -->
+                    <input type="text" name="address" placeholder="Brewer Address">
+                    <input type="text" name="beer-city" placeholder="Enter originating city">
+                    <input type="text" name="beer-state" placeholder="State">
+                    <input type="text" name="beer-country" placeholder="Country">
+                    <input type="text" name="beer-description" placeholder="Beer Description">
+                    <input type="text" name="website" placeholder="Website">
+                    <input type="text" name="abv" placeholder="ABV(alcohol percentage to tenth)">
+                    <input type="text" name="ibu" placeholder="IBU">
+                    <input type="text" name="reference-method" placeholder="Standard Reference Method">
+                    <input type="text" name="product-code" placeholder="Universal Product Code">
+
+
+                    <!--Submit button -->
+                    <input type="submit" value="Submit">
+  				</form>
+
+                <?php
+                    //Beer name - text box
+                    //Dropdown - category
+                    //Dropdown - styles
+                    //Dropdown - brewer
+                    //Address
+                    //City
+                    //State
+                    //Country
+                    //Description
+                    //Website
+                    //Alchol Volume
+                    //International Bitterness Unit
+                    //Standard Reference Method
+                    //Universal Product Code
+
+                    //if(isset($_POST[]))
+                    echo "your mother was a hamster, and your father smells of elderberries";
+                ?>
+
+
+        </body>
+    </html>

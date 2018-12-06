@@ -1,9 +1,9 @@
 <?php
-	 //require_once("BeerBuddies_Library.php");		
-	    
+	 //require_once("BeerBuddies_Library.php");
+
 	// require_once("BeerBuddies_Library.php");
- 	
-	// require("Homepage.php");   
+
+	// require("Homepage.php");
  //    $library = new BeerBuddies_Library();
 
  //    echo $library->headerConfig();
@@ -27,20 +27,20 @@
         '<h2>Featured Beers</h2>'.
         '<table>'.
             '<tr>'.
-                '<th>Beer Name</th>'.
-                '<th>Category</th>'.
-                '<th>Style</th>'.
-                '<th>Brewer</th>'.
-                '<th>Street Address</th>'.
-                '<th>City</th>'.
-                '<th>State</th>'.
-                '<th>Country</th>'.
-                '<th>Description</th>'.
-                '<th>Website</th>'.
-                '<th>Alcohol Volume</th>'.
-                "<th>Int'l Bitterness Unit</th>".
-                "<th>Int'l Standard Ref. Meth.</th>".
-                '<th>Universal Product Code</th>'.
+				'<th>Beer Name</th>'.
+				'<th>Category</th>'.
+				'<th>Style</th>'.
+				'<th>Brewer</th>'.
+				'<th>Street Address</th>'.
+				'<th>City</th>'.
+				'<th>State</th>'.
+				'<th>Country</th>'.
+				'<th>Description</th>'.
+				'<th>Website</th>'.
+				'<th>Alcohol by Volume</th>'.
+				"<th>International Bitterness Units</th>".
+				"<th>Standard Reference Method</th>".
+				'<th>Universal Product Code</th>'.
             '</tr>';
             foreach($featuredBeers as $beer) {
                 $page_content.= "<tr>" .
@@ -62,4 +62,3 @@
             }
 ?>
 <?php include 'templates/main_template.php'; ?>
-

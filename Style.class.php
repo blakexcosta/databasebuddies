@@ -3,14 +3,14 @@
 class Style
 {
 	//Attributes
-	private $styleid, $stylename;
-	
+	public $styleid, $stylename;
+
 	//Default constructor
     function __construct()
     {
-    
+
     }
-	
+
 	//Accessors
 	public function getStyleID()
 	{

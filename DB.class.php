@@ -30,7 +30,7 @@
 				echo $pdoex;
             }
         }
-        
+
 		public function retrieveAllBeers()
         {
             try
@@ -46,11 +46,11 @@
                 Beer."INTSTANDARDREFMETH" as standRefMeth, Beer."INTUNVPRODCODE" as uniProdCode, Beer."DATELASTUPDATED" as lastUpdate,
                 Beer."VCHCOORDINATES" as coords, Beer."DATEADDED" as dateAdded
                 from beerbuddies_db.Beer;');
-                
+
                 $stmt->setFetchMode(PDO::FETCH_CLASS, "Beer");
                 $stmt->execute();
                 $someBeers = $stmt->fetchAll();
-                
+
                 return $someBeers;
             }
             catch (PDOException $pdoex)
@@ -59,7 +59,7 @@
                 echo $pdoex;
             }
         }
-		
+
         public function retrieveSomeBeers()
         {
             try
@@ -75,11 +75,11 @@
                 Beer."INTSTANDARDREFMETH" as standRefMeth, Beer."INTUNVPRODCODE" as uniProdCode, Beer."DATELASTUPDATED" as lastUpdate,
                 Beer."VCHCOORDINATES" as coords, Beer."DATEADDED" as dateAdded
                 from beerbuddies_db.Beer limit 10;');
-                
+
                 $stmt->setFetchMode(PDO::FETCH_CLASS, "Beer");
                 $stmt->execute();
                 $someBeers = $stmt->fetchAll();
-                
+
                 return $someBeers;
             }
             catch (PDOException $pdoex)
@@ -88,7 +88,7 @@
                 echo $pdoex;
             }
         }
-        
+
         public function retrieveBeersViaName($name)
         {
            try
@@ -106,21 +106,21 @@
                 from beerbuddies_db.Beer JOIN beerbuddies_db.BeerName USING("INTBEERID")
                 where BeerName."VCHBEERNAME" LIKE :nm
                 limit 30');
-                
+
                 $name = "%".$name."%";
                 $stmt->setFetchMode(PDO::FETCH_CLASS, "Beer");
                 $stmt->execute(array("nm"=>$name));
                 $someBeers = $stmt->fetchAll();
-                
+
                 return $someBeers;
             }
             catch (PDOException $pdoex)
             {
                 echo "<h2>Unable to retrieve the beers!</h2>";
                 echo $pdoex;
-            } 
+            }
         }
-        
+
         public function retrieveBeersViaStyle($style)
         {
             try
@@ -137,12 +137,12 @@
                 Beer."VCHCOORDINATES" as coords, Beer."DATEADDED" as dateAdded
                 from beerbuddies_db.Beer JOIN beerbuddies_db.Style USING("INTSTYLEID")
                 where Style."VCHSTYLE" LIKE :sty');
-                
+
                 $name = "%".$style."%";
                 $stmt->setFetchMode(PDO::FETCH_CLASS, "Beer");
                 $stmt->execute(array("sty"=>$style));
                 $someBeers = $stmt->fetchAll();
-                
+
                 return $someBeers;
             }
             catch (PDOException $pdoex)
@@ -151,7 +151,7 @@
                 echo $pdoex;
             }
         }
-        
+
         public function retrieveBeersViaCategory($category)
         {
             try
@@ -168,12 +168,12 @@
                 Beer."VCHCOORDINATES" as coords, Beer."DATEADDED" as dateAdded
                 from beerbuddies_db.Beer JOIN beerbuddies_db.Category USING("INTCATEGORYID")
                 where Category."VCHCATEGORY" LIKE :cat');
-                
+
                 $name = "%".$category."%";
                 $stmt->setFetchMode(PDO::FETCH_CLASS, "Beer");
                 $stmt->execute(array("cat"=>$category));
                 $someBeers = $stmt->fetchAll();
-                
+
                 return $someBeers;
             }
             catch (PDOException $pdoex)
@@ -182,7 +182,7 @@
                 echo $pdoex;
             }
         }
-        
+
         public function retrieveBeersViaBrewer($brewer)
         {
             try
@@ -199,12 +199,12 @@
                 Beer."VCHCOORDINATES" as coords, Beer."DATEADDED" as dateAdded
                 from beerbuddies_db.Beer JOIN beerbuddies_db.Brewer USING("INTBREWERID")
                 where Brewer."VCHBREWER" LIKE :brw');
-                
+
                 $name = "%".$brewer."%";
                 $stmt->setFetchMode(PDO::FETCH_CLASS, "Beer");
                 $stmt->execute(array("brw"=>$brewer));
                 $someBeers = $stmt->fetchAll();
-                
+
                 return $someBeers;
             }
             catch (PDOException $pdoex)
@@ -213,7 +213,7 @@
                 echo $pdoex;
             }
         }
-        
+
         public function retrieveBeersViaCountry($country)
         {
             try
@@ -229,12 +229,12 @@
                 Beer."INTSTANDARDREFMETH" as standRefMeth, Beer."INTUNVPRODCODE" as uniProdCode, Beer."DATELASTUPDATED" as lastUpdate,
                 Beer."VCHCOORDINATES" as coords, Beer."DATEADDED" as dateAdded
                 from beerbuddies_db.Beer where Beer."VCHCOUNTRY" LIKE :cnt');
-                
+
                 $name = "%".$country."%";
                 $stmt->setFetchMode(PDO::FETCH_CLASS, "Beer");
                 $stmt->execute(array("cnt"=>$country));
                 $someBeers = $stmt->fetchAll();
-                
+
                 return $someBeers;
             }
             catch (PDOException $pdoex)
@@ -243,7 +243,7 @@
                 echo $pdoex;
             }
         }
-        
+
         public function retrieveBeersViaState($state)
         {
             try
@@ -259,12 +259,12 @@
                 Beer."INTSTANDARDREFMETH" as standRefMeth, Beer."INTUNVPRODCODE" as uniProdCode, Beer."DATELASTUPDATED" as lastUpdate,
                 Beer."VCHCOORDINATES" as coords, Beer."DATEADDED" as dateAdded
                 from beerbuddies_db.Beer where Beer."VCHSTATE" LIKE :stt');
-                
+
                 $name = "%".$state."%";
                 $stmt->setFetchMode(PDO::FETCH_CLASS, "Beer");
                 $stmt->execute(array("stt"=>$state));
                 $someBeers = $stmt->fetchAll();
-                
+
                 return $someBeers;
             }
             catch (PDOException $pdoex)
@@ -273,7 +273,7 @@
                 echo $pdoex;
             }
         }
-        
+
         public function retrieveBeersViaCity($city)
         {
             try
@@ -289,12 +289,12 @@
                 Beer."INTSTANDARDREFMETH" as standRefMeth, Beer."INTUNVPRODCODE" as uniProdCode, Beer."DATELASTUPDATED" as lastUpdate,
                 Beer."VCHCOORDINATES" as coords, Beer."DATEADDED" as dateAdded
                 from beerbuddies_db.Beer where Beer."VCHCITY" LIKE :cty');
-                
+
                 $name = "%".$city."%";
                 $stmt->setFetchMode(PDO::FETCH_CLASS, "Beer");
                 $stmt->execute(array("cty"=>$city));
                 $someBeers = $stmt->fetchAll();
-                
+
                 return $someBeers;
             }
             catch (PDOException $pdoex)
@@ -302,6 +302,65 @@
                 echo "<h2>Unable to retrieve the beers!</h2>";
                 echo $pdoex;
             }
+        }
+
+        public function retrieveAllStyles()
+        {
+            try {
+
+                $allStyles = array();
+                $stmt = $this->dbh->prepare('select Style."INTSTYLEID", Style."VCHSTYLE" from beerbuddies_db.Style');
+                //$stmt->setFetchMode();
+                $stmt->execute();
+                $allStyles = $stmt->fetchAll();
+
+                return $allStyles;
+
+            } catch (PDOException $pdoex) {
+                echo "<h2>Unable to retrieve the styles!</h2>";
+                echo $pdoex;
+            }
+
+        }
+
+        public function retrieveAllCategories()
+        {
+            try {
+                $allCategories = array();
+                $stmt = $this->dbh->prepare('select Category."INTCATEGORYID", Category."VCHCATEGORY" from beerbuddies_db.Category');
+                $stmt->execute();
+                $allCategories = $stmt->fetchAll();
+
+                return $allCategories;
+            }
+            catch (PDOException $pdoex)
+            {
+                echo "<h2>Unable to retrieve the categories!</h2>";
+                echo $pdoex;
+            }
+        }
+
+        public function retrieveAllBrewers()
+        {
+            try {
+                $allBrewers = array();
+                $stmt = $this->dbh->prepare('select Brewer."INTBREWERID", Brewer."VCHBREWER" from beerbuddies_db.Brewer');
+                //$stmt->setFetchMode(PDO::FETCH_CLASS, "Brewer");
+                $stmt->execute();
+                $allBrewers = $stmt->fetchAll();
+
+                return $allBrewers;
+            }
+            catch (PDOException $pdoex)
+            {
+                echo "<h2>Unable to retrieve the brewers!</h2>";
+                echo $pdoex;
+            }
+        }
+
+        public function insertBeer($beerName, $category, $style, $brewer, $address, $city, $state, $country, $description, $website, $alchol, $bitterness, $reference, $product)
+        {
+            $stmt = $this->dbh->prepare('insert into beerbuddies_db.Beer Beer."INTBEERID" ');
         }
 	}
 ?>

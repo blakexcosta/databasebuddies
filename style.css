@@ -1,6 +1,104 @@
-
+* {
+	padding: 0;
+	margin:0;
+	font-family: Helvetica, Verdana, sans-serif;
+	color: #231d0c;
+}
 
 table {
-	border-collapse: collapse;
-	border: 1px;
+    border-collapse: collapse;
 }
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+h1{
+	font-size: 3em;
+	margin: 2% 5%;
+}
+
+p, h2 {
+	margin: 2% 5%
+}
+
+#proj-title{
+	font-size: 3em;
+	text-align: center;
+	margin-left:0;
+}
+
+#nav-menu, #search-beers, #adv-search {
+	display:inline;
+}
+
+#search-beers, #adv-search {
+	float:right;
+	clear:both;
+}
+
+#search-beers{
+	width:20%;
+}
+
+#nav-menu {
+	list-style: none;
+	margin-left: 3%;
+}
+
+.nav-item {
+	display:inline;
+	margin-right:3%;
+}
+
+.nav-item a:hover {
+	text-decoration:underline;
+	font-weight: bold;
+}
+
+.nav-item a {
+	text-decoration: none;
+	color: #265074;
+}
+
+#nav-bar{
+	width:100%;
+	padding: 2% 0;
+	background-color: #f2ce6f;
+	border-bottom: 10px solid #265074;
+
+}
+
+#login-content {
+	width:30%;
+	margin:auto;
+	border: 3px solid #265074;
+	padding: 3% 7%;
+}
+
+#login-content input {
+	line-height: 2em;
+	width:100%;
+	font-size: 1.1em;
+	margin-bottom: 3%;
+}
+
+html,body, #viewDiv {
+  	position: relative;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: "Grey";
+}
+
+
+
+
+

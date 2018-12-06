@@ -19,8 +19,8 @@
     $featuredBeers = $dbh->retrieveSomeBeers();
 
     $page_content=
-        '<h2>About BeerBuddies</h2>'.
-        '<p>Find beers you know or you will love. Whether you are a novice or a beer connoisseur, BeerBuddies is the perfect application to help you find beers near you. Learn more about the beers you already love, or find new beers that will tickle your fancy.</p>'.
+        '<h2>About BeerBuddies&trade;</h2>'.
+        '<p>Find beers you know or you will love. Whether you are a novice or a beer connoisseur, BeerBuddies&trade; is the perfect application to help you find beers near you. Learn more about the beers you already love, or find new beers that will tickle your fancy.</p>'.
 
         '<hr/>'.
 

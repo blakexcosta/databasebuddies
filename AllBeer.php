@@ -14,12 +14,11 @@
     require_once('DB.class.php');
     $dbh = new PDO_DB();
 
-    $page_title = "All Beer";
+    $page_title = "All Beers";
 
     $featuredBeers = $dbh->retrieveAllBeers();
 
     $page_content=
-        '<h2>All Beers</h2>'.
         '<table>'.
             '<tr>'.
                 '<th>Beer Name</th>'.

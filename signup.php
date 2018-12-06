@@ -17,18 +17,18 @@
     // login content
     $page_content = "<div id='login-content'>" .
     		"<form action='' method='post'>".
-    		"<label>First Name</label>".
+    		"<label>First Name</label><br>".
     		"<input type='text' name='fname' placeholder ='ex. John'><br/>".
-            "<label>Last Name</label>".
+            "<label>Last Name</label><br>".
             "<input type='text' name='lname' placeholder ='ex. Smith'><br/>".
-            "<label>Email</label>".
+            "<label>Email</label><br>".
             "<input type='email' name='email' placeholder ='ex. jsmith@me.com'><br/>".
-            "<label>Username</label>".
+            "<label>Username</label><br>".
             "<input type='text' name='Username' placeholder ='jsmith'><br/>".
-    		"<label>Password</label>".
+    		"<label>Password</label><br>".
     		"<input type='password' name='password' placeholder='Password'><br/>".
-            "<label>Password</label>".
-            "<input type='password2' name='password' placeholder='Re-enter Passwrod'><br/>".
+            "<label>Password</label><br>".
+            "<input type='password2' name='password' placeholder='Re-enter Passwrod'><br/><br/>".
     		"<input type='submit' value='Create Account'>".
     		"</form>".
     	"</div>";
